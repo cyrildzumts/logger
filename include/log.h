@@ -1,8 +1,7 @@
 #ifndef LOG_H
 #define LOG_H
+#include "config.h"
 #include "logger.h"
-
-
 
     #ifdef LOG_LEVEL_1
 

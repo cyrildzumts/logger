@@ -77,7 +77,8 @@ template<typename logpolicy>
     template<Severity_Type severity, typename...Args>
 void Logger<logpolicy>::print(Args ...args)
 {
-    write_mutex.lock();
+    std::lock_guard lock(write_mutex);
+    //write_mutex.lock();
     switch (severity) {
     case Severity_Type::DEBUG:
         logstream << "<DEBUG>   : ";
@@ -91,7 +92,7 @@ void Logger<logpolicy>::print(Args ...args)
 
     };
     core_print(args...);
-    write_mutex.unlock();
+    //write_mutex.unlock();
 }
 
 
